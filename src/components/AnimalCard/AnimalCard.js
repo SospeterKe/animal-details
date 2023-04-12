@@ -3,13 +3,14 @@ import PropTypes from 'prop-types';
 import '../AnimalDetails/AnimalDetails'
 import AnimalDetails from '../AnimalDetails/AnimalDetails';
 
-export default function AnimalCard({name, diet, size}) {
+export default function AnimalCard({name, size, ...props}) {
     
     return(
         <div>
             <h3>{name}</h3>
-            <div><AnimalDetails diet={diet}/></div>
-            <div>{size}</div>
+            <div>{size}kgs</div>
+            <div><AnimalDetails {...props}/></div>
+            
             
         </div>
     );
@@ -17,7 +18,6 @@ export default function AnimalCard({name, diet, size}) {
 }
 
 AnimalCard.propTypes = {
-    diet: PropTypes.arrayOf(PropTypes.string).isRequired,
     name: PropTypes.string.isRequired,
     size: PropTypes.number.isRequired
 }
